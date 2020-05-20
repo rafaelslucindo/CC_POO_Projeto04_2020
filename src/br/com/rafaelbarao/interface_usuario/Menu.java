@@ -1,6 +1,7 @@
 package br.com.rafaelbarao.interface_usuario;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Menu {
     private Console console;
@@ -9,7 +10,7 @@ public class Menu {
         this.console = console;
     }
 
-    private void imprimeMenu(ArrayList<OpcaoMenu> listaOpcoes) {
+    private void imprimeMenu(List<OpcaoMenu> listaOpcoes) {
         console.escreveConsole("");
         console.escreveConsole("#######################");
         //
@@ -19,7 +20,7 @@ public class Menu {
         console.escreveConsole("");
     }
 
-    private OpcaoMenu leOpcaoValida(ArrayList<OpcaoMenu> listaOpcoes) {
+    private OpcaoMenu leOpcaoValida(List<OpcaoMenu> listaOpcoes) {
         OpcaoMenu opcaoRetorno = null;
         //
         do {
@@ -39,7 +40,7 @@ public class Menu {
         return opcaoRetorno;
     }
 
-    public OpcaoMenu imprimeMenuLeOpcaoValida(ArrayList<OpcaoMenu> listaOpcoes) {
+    public OpcaoMenu imprimeMenuLeOpcaoValida(List<OpcaoMenu> listaOpcoes) {
         imprimeMenu(listaOpcoes);
         return leOpcaoValida(listaOpcoes);
     }

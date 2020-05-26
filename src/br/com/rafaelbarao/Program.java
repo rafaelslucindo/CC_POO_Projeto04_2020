@@ -1,12 +1,10 @@
 package br.com.rafaelbarao;
 
-import br.com.rafaelbarao.controladores.ControladorAudio;
-import br.com.rafaelbarao.controladores.ControladorCadastro;
-import br.com.rafaelbarao.controladores.ControladorImagem;
-import br.com.rafaelbarao.controladores.ControladorMovimentacao;
+import br.com.rafaelbarao.controladores.*;
 import br.com.rafaelbarao.interface_usuario.Console;
 import br.com.rafaelbarao.interface_usuario.Menu;
 import br.com.rafaelbarao.interface_usuario.OpcaoMenu;
+import br.com.rafaelbarao.objetos.Objeto;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +21,15 @@ public class Program {
     public void run() {
         inicializaMenu();
         controladorCadastro.adicionaObservador(controladorImagem);
+        EventoCadastro listenerObjetoClasseAnonima = new EventoCadastro() {
+            int teste = 0;
+            @Override
+            public void onNovoCadastroRealizado(List<Objeto> listObjetos) {
+                console.escreveConsole("EVENTO RECEBIDO DE DENTRO DE UM OBJETO DE CLASSE ANONIMA " + (++teste));
+            }
+        };
+        controladorCadastro.adicionaObservador(listenerObjetoClasseAnonima);
+        //
         controladorMovimentacao.setObservador(controladorImagem);
         exibeMenuPrincipal();
     }

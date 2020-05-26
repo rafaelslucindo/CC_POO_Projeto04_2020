@@ -16,7 +16,7 @@ public class Animal extends Objeto implements Audio, Movimentacao {
 
     @Override
     public void emiteSom() {
-        new Console().escreveConsole("BARULHO DO ANIMARL! AHHHHH!");
+        new Console().escreveConsole("BARULHO DO ANIMAL! AHHHHH!");
     }
 
     @Override
